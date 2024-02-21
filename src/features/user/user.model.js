@@ -28,8 +28,15 @@ let users = [
   {
     id: 1,
     name: 'Seller User',
-    email: 'seller@ecom.com',
-    password: 'noob12',
+    email: 'seller@ecom.in',
+    password: 'noob',
     type: 'seller',
+  },
+  {
+    id: 2,
+    name: 'Customer User',
+    email: 'custom@ecom.in',
+    password: 'noob',
+    type: 'customer',
   },
 ];
