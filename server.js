@@ -4,6 +4,7 @@ import productRouter from './src/features/product/product.routes.js';
 import userRouter from './src/features/user/user.routes.js';
 import bodyParser from 'body-parser';
 import jwtAuth from './src/middlewares/jwt.middleware.js';
+import cartRouter from './src/features/cart/cartItems.routes.js';
 
 // 2. Create a Server
 const server = express();
@@ -15,6 +16,8 @@ server.use(bodyParser.json());
 server.use('/api/products', jwtAuth, productRouter);
 // localhost:3200/api/users
 server.use('/api/users', userRouter);
+// localhost:3200/api/cart
+server.use('/api/cart', jwtAuth, cartRouter);
 
 // 3. Defualt request handler
 server.get('/', (req, res) => {
