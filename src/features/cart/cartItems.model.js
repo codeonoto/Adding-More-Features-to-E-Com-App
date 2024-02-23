@@ -13,6 +13,10 @@ export default class CartItemModel {
     cartItems.push(cartItem);
     return cartItem;
   }
+
+  static get(userID) {
+    return cartItems.filter((i) => i.userID == userID);
+  }
 }
 
-var cartItems = [new CartItemModel(1, 2, 1, 1)];
+var cartItems = [new CartItemModel(1, 2, 1, 1), new CartItemModel(1, 1, 2, 2)];
