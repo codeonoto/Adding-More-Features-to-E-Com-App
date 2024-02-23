@@ -23,7 +23,7 @@ export default class UserModel {
     return users;
   }
 }
-
+ 
 let users = [
   {
     id: 1,

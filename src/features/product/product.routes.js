@@ -25,3 +25,4 @@ productRouter.post(
 productRouter.get('/:id', productController.getOneProduct);
 
 export default productRouter;
+ 

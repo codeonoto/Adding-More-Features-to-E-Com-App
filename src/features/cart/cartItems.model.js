@@ -7,6 +7,7 @@ export default class CartItemModel {
     this.id = id;
   }
 
+  // add
   static add(productID, userID, quantity) {
     const cartItem = new CartItemModel(productID, userID, quantity);
     cartItem.id = cartItems.length + 1;
@@ -18,6 +19,7 @@ export default class CartItemModel {
     return cartItems.filter((i) => i.userID == userID);
   }
 
+  //add
   static delete(cartItemID, userID) {
     const cartItemIndex = cartItems.findIndex(
       (i) => i.id == cartItemID && i.userID == userID

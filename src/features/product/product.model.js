@@ -49,7 +49,7 @@ export default class ProductModel {
     if (!product) {
       return 'Product Not Found';
     }
-
+ 
     // 2. Check if there are any ratings and if not then add ratings array.
     if (!product.ratings) {
       product.ratings = [];

@@ -1,6 +1,8 @@
 import CartItemModel from './cartItems.model.js';
 
 export default class CartItemsController {
+  // Adding cart
+
   add(req, res) {
     const { productID, quantity } = req.query;
     const userID = req.userID;
@@ -14,6 +16,7 @@ export default class CartItemsController {
     return res.status(200).send(items);
   }
 
+  // deleting cart
   delete(req, res) {
     const userID = req.userID;
     const cartItemID = req.params.id;

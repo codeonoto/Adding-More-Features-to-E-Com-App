@@ -19,7 +19,7 @@ const basicAuthorizer = (req, res, next) => {
     'utf8'
   );
   console.log(decodedCreds); // [username:password]
-
+ 
   const creds = decodedCreds.split(':');
 
   const user = UserModel.getAll().find(

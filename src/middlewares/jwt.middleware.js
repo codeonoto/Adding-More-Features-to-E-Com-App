@@ -24,3 +24,4 @@ const jwtAuth = (req, res, next) => {
 };
 
 export default jwtAuth;
+ 
