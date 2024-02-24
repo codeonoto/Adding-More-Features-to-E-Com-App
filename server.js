@@ -12,6 +12,18 @@ import apiDocs from './swagger.json' assert { type: 'json' };
 // 2. Create a Server
 const server = express();
 
+// CORS policy configuration
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', '*');
+  res.header('Access-Control-Allow-Methods', '*');
+  // return OK for preflight request.
+  if (req.method == 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 server.use(bodyParser.json());
 
 // for all requests related to product, redirect to product routes
@@ -31,8 +43,8 @@ server.get('/', (req, res) => {
 
 // 4. Middleware to handle 404 requests
 server.use((req, res) => {
-  res.status(404).send("API not found")
-})
+  res.status(404).send('API not found');
+});
 
 // 5. Specify Port.
 const PORT = 3200;
