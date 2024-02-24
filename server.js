@@ -1,6 +1,7 @@
 // 1. Import Express
 import express from 'express';
 import swagger from 'swagger-ui-express';
+import cors from 'cors';
 
 import productRouter from './src/features/product/product.routes.js';
 import userRouter from './src/features/user/user.routes.js';
@@ -12,17 +13,20 @@ import apiDocs from './swagger.json' assert { type: 'json' };
 // 2. Create a Server
 const server = express();
 
-// CORS policy configuration
-server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  res.header('Access-Control-Allow-Methods', '*');
-  // return OK for preflight request.
-  if (req.method == 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-  next();
-});
+// CORS policy configuration using "Header"
+// server.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', '*');
+//   res.header('Access-Control-Allow-Methods', '*');
+//   // return OK for preflight request.
+//   if (req.method == 'OPTIONS') {
+//     return res.sendStatus(200);
+//   }
+//   next();
+// });
+
+// CORS policy configuration using "cors-lib"
+server.use(cors());
 
 server.use(bodyParser.json());
 
