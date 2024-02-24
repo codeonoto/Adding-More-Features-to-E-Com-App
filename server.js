@@ -29,7 +29,12 @@ server.get('/', (req, res) => {
   res.send('Welcome to Ecommerce APIs');
 });
 
-// 4. Specify Port.
+// 4. Middleware to handle 404 requests
+server.use((req, res) => {
+  res.status(404).send("API not found")
+})
+
+// 5. Specify Port.
 const PORT = 3200;
 server.listen(PORT);
 console.log('Server is running at', PORT);
